@@ -1,0 +1,429 @@
+:root {
+  /* 色の変数を定義 */
+  --color-ebc: #fca7d6; /* 私立恵比寿中学 */
+  --color-5572320: #333333; /* 五五七二三二〇 */
+  --color-infinities: #c3197c; /* インフィニティーズ */
+  --color-cover: #842626; /* カバー */
+  --color-default: #007bff; /* その他 */
+  --color-1: #e52822;  /* 瑞季 */
+  --color-3: #7c0085;  /* 真山 */
+  --color-4: #f8c217;  /* 杏野 */
+  --color-5: #279b46;  /* 安本 */
+  --color-6: #90c132;  /* 廣田 */
+  --color-7: #e84d90;  /* 星名 */
+  --color-8: #42abef;  /* 鈴木 */
+  --color-9: #002fff;  /* 松野 */
+  --color-10: #ff8f1c; /* 柏木 */
+  --color-11: #f8c217; /* 小林 */
+  --color-12: #42abef; /* 中山 */
+  --color-13: #e52822; /* 桜木 */
+  --color-14: #90c132; /* 小久保 */
+  --color-15: #bbbbbb; /* 風見 */
+  --color-16: #ff8f1c; /* 桜井 */
+  --color-17: #f3af93; /* 仲村 */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #fffbfe;
+    color: #333;
+    margin: 0;
+}
+
+#header-placeholder {
+  height: 30px;
+  background-color: #fca7d6;
+}
+
+/* ヘッダー全体 */
+.site-header {
+    background-color: #fca7d6;
+    padding: 0 15px;
+}
+
+/* ヘッダーの中身（ロゴとナビを横並びにする） */
+.header-inner {
+    height: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* ヘッダータイトル（ロゴ） */
+.header-title {
+    margin: auto 0;
+    color: #fff;
+    font-size: 12.5px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* ナビゲーションメニュー */
+.header-nav ul {
+    font-size: 10px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex; /* メニュー項目を横並び */
+    gap: 20px; /* 項目間のスペース */
+}
+
+.header-nav a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.header-nav a:hover {
+    color: #ddd; /* ホバー時の色 */
+}
+
+main {
+    max-width: 1250px;
+    padding: 10px;
+    align-items: center;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: min(20px, 9vw);
+    text-align: center;
+    color: #2c3e50;
+}
+
+.table-container {
+    margin: 10px auto 0;
+    overflow: auto;
+    background-color: #fff;
+    border-radius: 0.5vw;
+    border: 0.07vw solid #ccc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer, Edge */
+}
+.table-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.2vw;
+}
+
+th, td {
+    padding: 0.8vw;
+    text-align: left;
+    border-bottom: 0.07vw solid #e0e0e0;
+}
+
+thead tr {
+    position: -webkit-sticky; /* Safariブラウザ対応 */
+    position: sticky;
+    top: 0;
+    z-index: 1; /* スクロール時に他の要素の背後に隠れないようにするため */
+    background-color: #34495e;
+    color: #ffffff;
+}
+
+th {
+    cursor: pointer;
+    position: relative;
+    user-select: none; /* テキスト選択を防ぐ */
+}
+
+/* ソート状態を示す矢印 */
+th::after {
+    content: '';
+    position: absolute;
+    right: 0.7vw;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    border: 0.28vw solid transparent;
+}
+
+th.sorted-asc::after {
+    border-bottom-color: #fff;
+    margin-top: -0.35vw;
+    border-width: 0.35vw;
+}
+
+th.sorted-desc::after {
+    border-top-color: #fff;
+    margin-top: 0.35vw;
+    border-width: 0.35vw;
+}
+
+.striped-row {
+    background-color: #f8f9fa;
+}
+
+tbody tr.selected-row {
+    background-color: var(--color-active);
+}
+
+/* テーブルのレイアウト計算方法を固定にすると、指定した幅が守られやすくなります */
+table {
+    table-layout: fixed;
+}
+
+/* 各列（th）の幅を指定 */
+thead th:nth-child(1) { /* 1列目: 曲名 */
+    width: 15%;
+}
+thead th:nth-child(2) { /* 2列目: タグ */
+    width: 9%;
+}
+thead th:nth-child(3) { /* 3列目: リリース日 */
+    width: 8%;
+}
+thead th:nth-child(4) { /* 4列目: 収録作品 */
+    width: 15%;
+}
+thead th:nth-child(5) { /* 5列目: 作詞 */
+    width: 15%;
+}
+thead th:nth-child(6) { /* 6列目: 作曲 */
+    width: 15%;
+}
+thead th:nth-child(7) { /* 7列目: 編曲 */
+    width: 15%;
+}
+thead th:nth-child(8) { /* 8列目: 動画 */
+    width: 4%;
+    align-items: center;
+}
+thead th:nth-child(9) { /* 9列目: 音源 */
+    width: 4%;
+    align-items: center;
+}
+
+/* タグブロックの基本スタイル */
+.tag-block {
+    display: inline-block;
+    padding: 0.21vw 0.56vw;
+    margin: 0.14vw;
+    border-radius: 0.77vw; /* 角を丸くする */
+    font-size: 0.77vw;
+    color: #fff; /* 文字色を白に */
+    font-weight: 500;
+}
+
+/* タグごとの色設定 */
+.tag-ebc { background-color: var(--color-ebc); }  /* 私立恵比寿中学 */
+.tag-cover { background-color: var(--color-cover); } /* カバー */
+.tag-5572320 { background-color: var(--color-5572320); }  /* 五五七二三二〇 */
+.tag-infinities { background-color: var(--color-infinities); }  /* インフィニティーズ */
+.tag-1 { background-color: var(--color-1); }  /* 瑞季 */
+.tag-3 { background-color: var(--color-3); }  /* 真山 */
+.tag-4 { background-color: var(--color-4); }  /* 杏野 */
+.tag-5 { background-color: var(--color-5); }  /* 安本 */
+.tag-6 { background-color: var(--color-6); }  /* 廣田 */
+.tag-7 { background-color: var(--color-7); }  /* 星名 */
+.tag-8 { background-color: var(--color-8); }  /* 鈴木 */
+.tag-9 { background-color: var(--color-9); }  /* 松野 */
+.tag-10 { background-color: var(--color-10); }  /* 柏木 */
+.tag-11 { background-color: var(--color-11); }  /* 小林 */
+.tag-12 { background-color: var(--color-12); }  /* 中山 */
+.tag-13 { background-color: var(--color-13); }  /* 桜木 */
+.tag-14 { background-color: var(--color-14); }  /* 小久保 */
+.tag-15 { background-color: var(--color-15); }  /* 風見 */
+.tag-16 { background-color: var(--color-16); }  /* 桜井 */
+.tag-17 { background-color: var(--color-17); }  /* 仲村 */
+.tag-default { background-color: var(--color-default); } /* その他 */
+
+/* --- アコーディオン機能のためのスタイル --- */
+
+/* クリック可能な行のスタイル */
+.clickable-row {
+    cursor: pointer;
+}
+
+/* 選択されている（開いている）行のハイライト */
+.active-row {
+    background-color: var(--color-active);
+}
+
+/* 詳細表示用のセル（アニメーションの起点）*/
+.details-cell {
+    padding: 0 !important;
+    border-bottom: 0.07vw solid #ccc;
+}
+
+/* 詳細表示のコンテンツ部分（ここで高さをアニメーションさせる） */
+.details-content {
+    height: 12.6vw;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    padding: 1.06vw;
+    background-color: var(--color-active);
+}
+.details-content.open {
+    max-height: 250px; /* 動画の高さを考慮した十分な高さを指定 */
+}
+
+/* 動画を横に並べてスライドさせるためのコンテナ */
+.video-container {
+    height: 12.6vw;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex-wrap: nowrap;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer & Edge */
+}
+
+/* Chrome, Safari, Edge用の設定 */
+.video-container::-webkit-scrollbar {
+    display: none;
+}
+
+/* 個々の動画とスピナーを囲むラッパー */
+.video-wrapper {
+    display: inline-block;
+    position: relative; /* 中央配置の基準 */
+    flex-shrink: 0;
+    width: 22.4vw;
+    height: 12.6vw;
+    margin-right: 1.06vw;
+    background-color: #e9ecef; /* ローダーの背景色 */
+    border-radius: 0.56vw;
+}
+
+/* 個々のYouTube埋め込み動画 */
+.youtube-embed {
+    flex-shrink: 0; /* 動画が縮まないようにする */
+    aspect-ratio: 16 / 9;
+    margin-right: 1.06vw;
+    border: none;
+    border-radius: 0.56vw;
+}
+
+/* --- ローダーとスピナーのスタイル --- */
+
+/* ローダーの親要素（背景をうっすら暗くする） */
+.loader-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+}
+
+/* スピナー本体のアニメーション */
+.spinner {
+    border: 4px solid #f3f3f3; /* 薄いグレーの円 */
+    border-top: 4px solid #3498db; /* 回転する部分の色 */
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+/* 回転アニメーションの定義 */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ラッパーの中央にスピナーを配置 */
+.video-wrapper .spinner-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 動画ごとのスピナーは少し小さめに */
+.video-wrapper .spinner {
+    border: 0.25vw solid #f3f3f3;
+    border-top: 0.25vw solid #3498db;
+    width: 2.5vw;
+    height: 2.5vw;
+}
+
+.youtube-icon {
+    width: 2.4vw;
+    vertical-align: middle;
+    display: flex;
+}
+
+.play-music-btn {
+    width: 2.4vw;
+    height: 2.4vw;
+    display: flex;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+/* 画面下部に固定するプレーヤーの枠 */
+#music-player-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 153px; /* 153 + 30 */
+    z-index: 10; /* 他の要素より手前に表示 */
+    transform: scale(0.5);
+    transform-origin: bottom left;
+    display: flex;
+}
+#music-player-bar.hidden {
+    display: none;
+}
+
+#player-container {
+    width: 100%;
+    height: 153px;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+}
+
+#player-container iframe {
+    width: 100%;
+    height: 214px;
+    border: none;
+}
+
+#close-player-btn {
+    /* 1. 位置（右上） */
+    position: absolute;
+    top: -30px;
+    right: 0px;
+    z-index: 11; /* プレーヤー本体より手前 */
+
+    /* 2. 形状（正方形） */
+    width: 30px;  /* 幅 */
+    height: 30px; /* 高さ */
+    
+    /* 3. 見た目 */
+    background: transparent;
+    border: 0px;
+    color: #555;
+    
+    /* 4. 「×」を中央に配置 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* 5. 「×」のスタイル */
+    font-size: 60px;
+    line-height: 1;
+    
+    /* 6. その他 */
+    padding: 0;
+    cursor: pointer;
+}

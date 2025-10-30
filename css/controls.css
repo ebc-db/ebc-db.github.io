@@ -1,0 +1,175 @@
+/* 検索・絞り込み全体を囲うラッパー */
+.controls-wrapper {
+    max-width: 600px;
+    margin: 20px auto 20px auto;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.control-section {
+    margin-bottom: 20px;
+}
+
+.control-section .description {
+    font-size: 12px;
+    color: #666;
+    margin: 0px;
+}
+
+/* 各セクションのタイトル */
+.control-section h2 {
+    font-size: 16px;
+    color: #333;
+    margin: 0 0 6px 0;
+    border-bottom: 2px solid #34495e; /* タイトル下に線 */
+    padding-bottom: 5px;
+}
+
+/* 既存コンテナのマージンを調整 */
+.control-container {
+    margin: 0 auto; /* 上下のマージンを削除 */
+}
+
+.search-wrapper {
+    position: relative;
+}
+
+#search-box {
+    width: 100%;
+    padding: 10px 35px 10px 15px;
+    margin: 4px 0px;
+    box-sizing: border-box;
+    font-size: 16px;
+    border-radius: 0.2em;
+    border: 1px solid #ccc;
+    outline: none;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+#search-box:focus {
+    border-color: #34495e;
+    box-shadow: 0 0 8px rgba(52, 73, 94, 0.2);
+}
+
+/* クリアボタン「×」のスタイル */
+#clear-search-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    display: none;
+    border: none;
+    background: transparent;
+    padding: 0 5px;
+    cursor: pointer;
+    font-size: 20px;
+    color: #888;
+}
+#clear-search-btn:hover {
+    color: #333;
+}
+
+/* 絞り込みボタン（元チェックボックス）のスタイル */
+.filter-btn {
+    display: inline-block;
+    padding: 6px 8px;
+    margin: 4px 2px;
+    font-size: 12px;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: #f5f5f5; /* 非選択時の色 */
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.filter-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* 選択時のスタイル */
+.filter-btn.active {
+    color: #fff;
+}
+
+.filter-btn.active { background-color: var(--color-default); }
+#filter-ebc.active { background-color: var(--color-ebc); }
+#filter-5572320.active { background-color: var(--color-5572320); }
+#filter-infinities.active { background-color: var(--color-infinities); }
+#filter-1.active { background-color: var(--color-1); }
+#filter-2.active { background-color: var(--color-2); }
+#filter-3.active { background-color: var(--color-3); }
+#filter-4.active { background-color: var(--color-4); }
+#filter-5.active { background-color: var(--color-5); }
+#filter-6.active { background-color: var(--color-6); }
+#filter-7.active { background-color: var(--color-7); }
+#filter-8.active { background-color: var(--color-8); }
+#filter-9.active { background-color: var(--color-9); }
+#filter-10.active { background-color: var(--color-10); }
+#filter-11.active { background-color: var(--color-11); }
+#filter-12.active { background-color: var(--color-12); }
+#filter-13.active { background-color: var(--color-13); }
+#filter-14.active { background-color: var(--color-14); }
+#filter-15.active { background-color: var(--color-15); }
+#filter-16.active { background-color: var(--color-16); }
+#filter-17.active { background-color: var(--color-17); }
+
+.year-selector {
+    font-size: 12px;
+    padding: 8px 10px;
+    margin: 4px 0px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    color: #666;
+    background-color: #fff;
+    min-width: 150px;
+    cursor: pointer;
+}
+.year-selector:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0,123,255,0.25);
+}
+
+/* リセットボタンのセクション */
+.reset-section {
+    text-align: right; /* ボタンを右寄せ */
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee; /* 上のセクションとの区切り線 */
+}
+
+/* リセットボタン自体のスタイル */
+#reset-all-btn {
+    background-color: #fff; /* 目立ちすぎないグレー */
+    border-color: #6c757d;
+    font-weight: bold;
+    margin: 0;
+}
+#reset-all-btn:hover {
+    background-color: #e0e0e0;
+}
+
+/* 検索結果数表示のスタイル */
+.results-container {
+    max-width: 1200px;
+    margin: 10px auto;
+    padding: 0 10px;
+    text-align: left;
+}
+
+#results-count {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+}
+#count-number {
+    color: #007bff;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0 2px 0 2px;
+}

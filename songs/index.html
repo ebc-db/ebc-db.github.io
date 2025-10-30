@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私立恵比寿中学 楽曲データベース</title>
+    <link rel="stylesheet" href="/css/common.css">
+    <link rel="stylesheet" href="/css/controls.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="main-content">
+        <h1>私立恵比寿中学（えびちゅう・エビ中）楽曲データベース 💿</h1>
+        <div class="controls-wrapper">
+            
+            <div class="control-section">
+                <h2>フリーワード検索</h2>
+                <div class="control-container">
+                    <div class="search-wrapper"> 
+                        <input type="text" id="search-box" placeholder="曲名、楽曲提供者などで検索">
+                        <button id="clear-search-btn" title="クリア">&otimes;</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h2>名義で絞り込み</h2>
+                <div class="control-container">
+                    <button class="type-filter filter-btn" id="filter-ebc" data-value="私立恵比寿中学">私立恵比寿中学</button>
+                    <button class="type-filter filter-btn" id="filter-5572320" data-value="五五七二三二〇">五五七二三二〇</button>
+                    <button class="type-filter filter-btn" id="filter-infinities" data-value="インフィニティーズ">インフィニティーズ</button>
+                    <button class="type-filter filter-btn" id="filter-solo" data-value="ソロ">ソロ</button>
+                    <button class="type-filter filter-btn" id="filter-unit" data-value="ユニット">ユニット</button>
+                </div>
+            </div>
+
+            <div class="control-section">
+                <h2>メンバーで絞り込み（ソロ・ユニット曲）</h2>
+                <div class="control-container">
+                    <button class="member-filter filter-btn" id="filter-1" data-value="瑞季">瑞季</button>
+                    <button class="member-filter filter-btn" id="filter-3" data-value="真山">真山</button>
+                    <button class="member-filter filter-btn" id="filter-4" data-value="杏野">杏野</button>
+                    <button class="member-filter filter-btn" id="filter-5" data-value="安本">安本</button>
+                    <button class="member-filter filter-btn" id="filter-6" data-value="廣田">廣田</button>
+                    <button class="member-filter filter-btn" id="filter-7" data-value="星名">星名</button>
+                    <button class="member-filter filter-btn" id="filter-8" data-value="鈴木">鈴木</button>
+                    <button class="member-filter filter-btn" id="filter-9" data-value="松野">松野</button>
+                    <button class="member-filter filter-btn" id="filter-10" data-value="柏木">柏木</button>
+                    <button class="member-filter filter-btn" id="filter-11" data-value="小林">小林</button>
+                    <button class="member-filter filter-btn" id="filter-12" data-value="中山">中山</button>
+                    <button class="member-filter filter-btn" id="filter-13" data-value="桜木">桜木</button>
+                    <button class="member-filter filter-btn" id="filter-14" data-value="小久保">小久保</button>
+                    <button class="member-filter filter-btn" id="filter-15" data-value="風見">風見</button>
+                    <button class="member-filter filter-btn" id="filter-16" data-value="桜井">桜井</button>
+                    <button class="member-filter filter-btn" id="filter-17" data-value="仲村">仲村</button>
+                </div>
+            </div>
+            <div class="control-section">
+                <h2>年で絞り込み</h2>
+                <div class="control-container">
+                    <select id="year-selector" class="year-selector"></select>
+                </div>
+                <p class="description">※曲がリリース・初披露された年</p>
+            </div>
+            <div class="control-section">
+                <h2>動画の有無で絞り込み</h2>
+                <div class="control-container">
+                    <button class="video-filter filter-btn" id="filter-video-yes" data-value="yes">動画あり</button>
+                    <button class="video-filter filter-btn" id="filter-video-no" data-value="no">動画なし</button>
+                </div>
+                <p class="description">※行をクリックすると下に動画が展開されます</p>
+            </div>
+            <div class="reset-section">
+                <button id="reset-all-btn" class="filter-btn">すべての条件をリセット</button>
+            </div>
+        </div>
+        <div class="results-container">
+            <span id="results-count">検索結果：<span id="count-number">0</span>曲</span>
+        </div>
+        <div class="table-container">
+            <div id="initial-loader" class="loader-container">
+                <div class="spinner"></div>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th data-key="曲名">曲名</th>
+                        <th data-key="タグ">タグ</th>
+                        <th data-key="リリース日">リリース日</th>
+                        <th data-key="収録作品">収録作品</th>
+                        <th data-key="作詞者">作詞者</th>
+                        <th data-key="作曲者">作曲者</th>
+                        <th data-key="編曲者">編曲者</th>
+                        <th data-key="動画">動画</th>
+                        <th data-key="音源">音源</th>
+                    </tr>
+                </thead>
+                <tbody id="data-table-body">
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <div id="music-player-bar" class="hidden">
+        <button id="close-player-btn" title="プレーヤーを閉じる">&times;</button>
+        <div id="player-container"></div>
+    </div>
+    <script src="/js/header.js"></script>
+    <script src="/js/common.js"></script>
+</body>
+</html>
