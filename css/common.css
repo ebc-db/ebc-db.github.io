@@ -256,11 +256,12 @@ thead th:nth-child(9) { /* 9列目: 音源 */
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-    padding: 1.06vw;
+    padding: 0 1.06vw;
     background-color: var(--color-active);
 }
 .details-content.open {
     max-height: 250px; /* 動画の高さを考慮した十分な高さを指定 */
+    padding: 1.06vw;
 }
 
 /* 動画を横に並べてスライドさせるためのコンテナ */

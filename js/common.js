@@ -494,7 +494,7 @@ document.addEventListener('DOMContentLoaded', () => {
             nextRow.querySelector('.details-content').classList.remove('open');
             clickedRow.classList.remove('active-row');
 
-            // 他に選択されている行があれば先にクリア
+            // 他に選択されている行があれば先に選択解除
             const currentlySelectedRows = tableBody.querySelectorAll('tr.selected-row:not(.active-row)');
             if (currentlySelectedRows.length > 0) {
                 currentlySelectedRows.forEach(row => {
@@ -511,8 +511,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 clickedRow.classList.remove('selected-row');
             }, 400); // 閉じるアニメーションの時間
-
-            // clickedRow.classList.add('selected-row');
 
             return;
         }
