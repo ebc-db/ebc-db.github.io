@@ -2,7 +2,7 @@
 	"name":				"",
 	"short_name":		"",
 	"description":		"",
-	"start_url":		"./",
+	"start_url":		"https://ebc-db.github.io/songs/",
 	"display":			"standalone",
 	"orientation":		"any",
 	"background_color":	"#fff",
